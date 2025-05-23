@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MVS paper</title>
+  
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Merriweather&display=swap" 
+    rel="stylesheet">
+  <!-- Bulma & custom CSS -->
+  <link rel="stylesheet" href="css/bulma.min.css">
+  <link rel="stylesheet" href="css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="css/bulma-slider.min.css">
+  <link rel="stylesheet" href="css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="css/index.css">
+  <!-- Video Gallery CSS -->
+  <link rel="stylesheet" href="css/video-gallery-css.css">
+  
+  <!-- Image Comparison Slider Library -->
+  <script
+    defer
+    src="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/index.js"
+  ></script>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/img-comparison-slider@8/dist/styles.css"
+  />
+  
+  <!-- Video Comparison Slider Custom CSS -->
+  <link rel="stylesheet" href="css/video-comparison-slider.css">
+</head>
+<body>
+  <!-- Header Hero -->
+  <section class="hero is-white">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <!-- Paper Title -->
+        <br>
+        <h1 class="title is-1">Video Stitching from Multiple Moving Cameras</h1>
+        <!-- Authors -->
+        <br>
+        <br>
+        <p class="subtitle is-5">
+          Anonymous Author(s)
+        </p>
+        <!-- Affiliation & Conference -->
+
+      </div>
+    </div>
+  </section>
+ 
+
+
+  <!-- Video Comparison Section -->
+  <!-- Video Sliding Comparison Section N=3 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4" id="galleryTitleTriplets">Visual Comparisons:</h2>
+      <h2 class="title is-4" id="gallerySubtitleTriplets">N=3:</h2> <!-- CHANGED ID -->
+      <div class="video-gallery-container">
+        <button class="button is-rounded nav-button nav-prev" onclick="navigateVideosTriplets(-1)">
+          <span class="arrow-icon">&#8592;</span>
+        </button>
+        
+        <!-- Single video container instead of columns -->
+        <div class="single-video-container">
+          <div class="video-panel">
+            <video
+              id="currentVideoTriplets"
+              class="has-ratio"
+              width="100%"
+              controls
+              autoplay
+              muted
+              playsinline
+              preload="auto"
+              loop
+            >
+              <source id="currentVideoSourceTriplets" src="videos/41.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+          
+        <button class="button is-rounded nav-button nav-next" onclick="navigateVideosTriplets(1)">
+          <span class="arrow-icon">&#8594;</span>
+        </button>
+      </div>
+      
+      <!-- Pagination dots -->
+      <div id="paginationTriplets" class="pagination-dots"></div>
+      
+      <!-- Counter -->
+      <div class="counter has-text-centered" id="videoCounterTriplets">1/2</div>
+    </div>
+  </section>
+  
+  <!-- Video Sliding Comparison Section N=2 -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4" id="galleryTitle"> N=2:</h2>
+      <div class="video-gallery-container">
+        
+        <button class="button is-rounded nav-button nav-prev" onclick="navigateVideos(-1)">
+          <span class="arrow-icon">&#8592;</span>
+        </button>
+        
+        <!-- Single video container instead of columns -->
+        <div class="single-video-container">
+          <div class="video-panel">
+            <video
+              id="currentVideo"
+              class="has-ratio"
+              width="100%"
+              controls
+              autoplay
+              muted
+              playsinline
+              preload="auto"
+              loop
+            >
+              <source id="currentVideoSource" src="videos/175.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+        
+        <button class="button is-rounded nav-button nav-next" onclick="navigateVideos(1)">
+          <span class="arrow-icon">&#8594;</span>
+        </button>
+      </div>
+      
+      <!-- Pagination dots -->
+      <div id="pagination" class="pagination-dots"></div>
+      
+      <!-- Counter -->
+      <div class="counter has-text-centered" id="videoCounter">1/2</div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">Panoramic Video for N=4</h2>
+      <!-- Explanation text -->
+
+      <div class="single-video-container">
+        <div class="video-panel">
+          <video
+            class="has-ratio"
+            width="100%"
+            controls
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+            loop
+          >
+            <source src="videos/vol.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">Panoramic Video for N=5</h2>
+      <!-- Explanation text -->
+
+      <div class="single-video-container">
+        <div class="video-panel">
+          <video
+            class="has-ratio"
+            width="100%"
+            controls
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+            loop
+          >
+            <source src="videos/5_cam.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">Comparison with an Image Stitching Baseline</h2>
+      <!-- Explanation text -->
+      <div class="content">
+        <p> MVS compared with an incremental pairwise image stitching baseline we implemented.
+           While the baseline can produce high quality panoramas at any single time t, the stitched video as a whole suffers from noticeable temporal instability. </p>
+      </div>
+
+      <div class="single-video-container">
+        <div class="video-panel">
+          <video
+            class="has-ratio"
+            width="100%"
+            controls
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+            loop
+          >
+            <source src="videos/case4_image_stitching.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+
+  <!-- Video Sliding Comparison Section -->
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4">Visualization of the Panoramic Video in feature space</h2>
+      
+      <div class="video-gallery-container">
+        <!-- Left navigation button - same as above sections -->
+        <button class="button is-rounded nav-button nav-prev" onclick="navigateSliderVideos(-1)">
+          <span class="arrow-icon">&#8592;</span>
+        </button>
+        
+        <!-- Single video container - same structure as above -->
+        <div class="single-video-container">
+          <img-comparison-slider id="video-slider">
+            <figure slot="first" class="before">
+              <video 
+                id="sliderVideoA"
+                width="100%"
+                autoplay
+                muted
+                playsinline
+                preload="auto"
+                loop
+              >
+                <source src="videos/40_pano.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <figcaption id="sliderTitleA"></figcaption>
+            </figure>
+            <figure slot="second" class="after">
+              <video 
+                id="sliderVideoB"
+                width="100%"
+                autoplay
+                muted
+                playsinline
+                preload="auto"
+                loop
+              >
+                <source src="videos/40_dino.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+              </video>
+              <figcaption id="sliderTitleB"></figcaption>
+            </figure>
+          </img-comparison-slider>
+        </div>
+        
+        <!-- Right navigation button - same as above sections -->
+        <button class="button is-rounded nav-button nav-next" onclick="navigateSliderVideos(1)">
+          <span class="arrow-icon">&#8594;</span>
+        </button>
+      </div>
+      
+      <!-- Pagination dots -->
+      <div id="sliderPagination" class="pagination-dots"></div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <div class="container">
+      <h2 class="title is-4 has-text-centered">The MMCD Dataset</h2>
+      <div class="content">
+        <p> A sample from the MMCD dataset of a six camera scene. 
+        For every scene, we manually annotate keypoints in the overlapping regions of the first frame of each video and track their trajectories with Co-Tracker 3.
+        </p>
+      </div>
+      
+
+      <div class="single-video-container">
+        <div class="video-panel">
+          <video
+            class="has-ratio"
+            width="100%"
+            controls
+            autoplay
+            muted
+            playsinline
+            preload="auto"
+            loop
+          >
+            <source src="videos/mmdc.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </section>  
+
+  <!-- Scripts -->
+  <script src="js/video-gallery-js.js"></script>
+</body>
+</html>
