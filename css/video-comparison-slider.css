@@ -1,0 +1,149 @@
+/* Video Comparison Slider Custom CSS */
+
+/* Container for the slider */
+.slider-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the image comparison slider */
+img-comparison-slider {
+  --divider-width: 2px;
+  --divider-color: #4a4a4a;
+  --handle-size: 40px;
+  --handle-color: #f6e2c2;
+  display: block;
+  margin: 0 auto;
+  width: 100%;
+  --handle-opacity: 0.9;
+}
+
+#video-slider video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Style for captions within the slider */
+.before figcaption,
+.after figcaption {
+  background: rgba(255, 255, 255, 0.95);  
+  border-radius: 8px;                     
+  color: #2e3452;
+  padding: 8px 16px;                      
+  position: absolute;
+  top: 15px;                              
+  font-size: 14px;                       
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 500;                       
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15); 
+  z-index: 20;                            
+  white-space: nowrap;                   
+  max-width: 200px;                     
+  text-align: center;                    
+}
+
+
+.before figcaption {
+  left: 20px;                             
+}
+
+.after figcaption {
+  right: 20px;                            
+}
+
+
+@media screen and (max-width: 768px) {
+  .before figcaption,
+  .after figcaption {
+    font-size: 12px;                     
+    padding: 6px 12px;                   
+    top: 10px;                           
+  }
+  
+  .before figcaption {
+    left: 10px;
+  }
+  
+  .after figcaption {
+    right: 10px;
+  }
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #d7dbe1;
+  color: white;
+  transition: background-color 0.3s, transform 0.2s;
+  z-index: 10;             
+}
+
+.nav-button:hover {
+  background-color: #d7dbe1;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.nav-prev {
+  left: 10px;              
+}
+
+.nav-next {
+  right: 10px;             
+}
+
+.arrow-icon {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.slider-counter {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  min-width: 60px;
+}
+
+
+figure {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.pagination-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 0.5rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ddd;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #d7dbe1;
+}
+
+.dot:hover {
+  background-color: #bbb;
+}
